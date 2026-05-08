@@ -100,11 +100,17 @@ const _slideDua = function () {
 const _slideTiga = function () {
   const tap = document.getElementById('tap');
   const slideTiga = document.getElementById('slideTiga');
+  const nngoc2Photo = document.getElementById('nngoc2-photo');
+  const ngoc4Photo = document.getElementById('ngoc4-photo');
 
   slideTiga.classList.remove('d-none');
+  nngoc2Photo.classList.remove('d-none');
+  ngoc4Photo.classList.remove('d-none');
   setTimeout(function () {
     tap.classList.remove('d-none');
     document.body.addEventListener('click', function () {
+      nngoc2Photo.classList.add('d-none');
+      ngoc4Photo.classList.add('d-none');
       slideTiga.classList.remove('animate__delay-2s', 'animate__slow');
       slideTiga.classList.replace('animate__fadeInRight', 'animate__fadeOut');
       tap.remove();
@@ -173,7 +179,7 @@ const _slideEnam = function () {
 
 
 new TypeIt("#teks1", {
-  strings: ["Xin Chào bé Bảo Ngọc dễ thương nhất trần đời, hôm nay là một ngày siêu đặt biệt của em.", "Cảm ơn bé vì suốt thời gian qua bé đã luôn cố gắng, không ngừng bỏ cuộc, vẫn luôn yêu đời và sống trọn vẹn.", "Mặc dù trải qua bao nhiêu khó khăn, bé vẫn luôn giữ vững niềm tin và tinh thần lạc quan.", "Hôm nay là ngày đặc biệt nhất của một người vô cùng đặt biệt với anh," , "Anh chúc bé có một ngày sinh nhật thật vui vẻ, hạnh phúc và tràn đầy yêu thương bên gia đình và bạn bè.", " ", "Anh hy vọng rằng trong năm mới của cuộc đời, bé sẽ tiếp tục đạt được những thành công mới, vượt qua mọi thử thách và luôn giữ được nụ cười trên môi."],
+  strings: ["Xin Chào bé Bảo Ngọc dễ thương nhất trần đời, hôm nay là một ngày siêu đặt biệt của em.", "Cảm ơn bé vì suốt thời gian qua bé đã luôn cố gắng, không ngừng cố gắng, không hề từ bỏ, vẫn luôn yêu đời và sống trọn vẹn.", "Mặc dù trải qua bao nhiêu khó khăn, bé vẫn luôn giữ vững niềm tin và tinh thần lạc quan.", "Hôm nay là ngày đặc biệt nhất của một người vô cùng đặt biệt với anh," , "Anh chúc bé có một ngày sinh nhật thật vui vẻ, hạnh phúc và tràn đầy yêu thương bên gia đình và bạn bè.", " ", "Anh hy vọng rằng trong năm mới của cuộc đời, bé sẽ tiếp tục đạt được những thành công mới, vượt qua mọi thử thách và luôn giữ được nụ cười trên môi."],
   startDelay: 4000,
   speed: 75,
   waitUntilVisible: true
