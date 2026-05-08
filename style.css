@@ -37,6 +37,15 @@ html {
   display: inline-block;
 }
 
+#slideSatu {
+  position: relative;
+}
+
+#slideSatu #tap {
+  display: block;
+  margin: 12px auto 0;
+}
+
 .foto {
   width: 80%;
   max-width: 400px;
@@ -117,7 +126,31 @@ html {
   z-index: 2;
 }
 
+#slideDua .ngoc3-photo {
+  position: absolute;
+  top: 270px;
+  left: 30px;
+  width: 160px;
+  max-width: 160px;
+  border-radius: 12px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+  transform: rotate(-30deg) !important;
+  z-index: 1;
+}
+.ngoc3-photo {
+  transform: rotate(-30deg);
+}
+
 @media (max-width: 768px) {
+  #slideDua .ngoc3-photo {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 50%;
+    margin: 0 auto 20px;
+    display: block;
+    transform: rotate(-30deg);
+  }
   #slideDua .paper-content {
     left: 20px;
   }
@@ -187,6 +220,7 @@ h1 {
 
 li {
   display: inline-block;
+  width: 100px;
   font-size: 16px;
   list-style-type: none;
   position: relative;
@@ -194,11 +228,24 @@ li {
   margin-top: 10px;
   padding: 10px;
   text-transform: uppercase;
+  text-align: center;
 }
 
 li span {
   display: block;
   font-size: 24px;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.tricambang {
+  position: relative;
+  top: 350px;
+  display: block;
+  margin: 0 auto;
+  max-width: 300px;
+  width: auto;
+  height: auto;
 }
 
 body {

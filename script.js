@@ -16,8 +16,10 @@ const second = 1000,
   hour = minute * 60,
   day = hour * 24;
 
-// Set countdown to 10 seconds from now for testing
-let countDown = new Date(Date.now() + 10 * second).getTime(),
+// Set countdown to May 16, 2026
+let countDown = new Date(2026, 4, 16).getTime(),
+// let countDown = new Date(Date.now() + 10 * second).getTime(),
+
   x;
 
 // Wait 2 seconds before starting the timer
@@ -25,16 +27,18 @@ setTimeout(function() {
   x = setInterval(function () {
     let now = new Date().getTime(),
       distance = countDown - now;
-    // document.getElementById('days').innerText = Math.floor(distance / (day)),
-    document.getElementById('hours').innerText = Math.floor(distance / (hour)) || 0,
-      document.getElementById('minutes').innerText = Math.floor((distance % (hour)) / (minute)) || 0,
-      document.getElementById('seconds').innerText = Math.floor((distance % (minute)) / second) || 0;
+
+    const days = distance > 0 ? Math.floor(distance / day) : 0;
+    const hours = distance > 0 ? Math.floor((distance % day) / hour) : 0;
+    const minutes = distance > 0 ? Math.floor((distance % hour) / minute) : 0;
+    const seconds = distance > 0 ? Math.floor((distance % minute) / second) : 0;
+
+    document.getElementById('days').innerText = days;
+    document.getElementById('hours').innerText = hours;
+    document.getElementById('minutes').innerText = minutes;
+    document.getElementById('seconds').innerText = seconds;
 
     if (distance <= 0) {
-      document.getElementById('days').innerText = 0;
-      document.getElementById('hours').innerText = 0;
-      document.getElementById('minutes').innerText = 0;
-      document.getElementById('seconds').innerText = 0;
       timer.classList.add('d-none');
       confetti();
       clearInterval(x);
@@ -61,6 +65,7 @@ const _slideDua = function () {
   const tap = document.getElementById('tap');
   const slideDua = document.getElementById('slideDua');
   const ngocPhoto = document.getElementById('ngoc-photo');
+  const ngoc3Photo = document.getElementById('ngoc3-photo');
 
   setTimeout(function () {
     slideSatu.classList.replace('animate__slideInDown', 'animate__backOutDown');
@@ -72,12 +77,14 @@ const _slideDua = function () {
 
   slideDua.classList.remove('d-none');
   ngocPhoto.classList.remove('d-none');
+  ngoc3Photo.classList.remove('d-none');
 
   setTimeout(function () {
     tap.classList.remove('d-none');
     document.body.addEventListener('click', function () {
-      // Hide ngoc.jpg before transitioning
+      // Hide ngoc images before transitioning
       ngocPhoto.classList.add('d-none');
+      ngoc3Photo.classList.add('d-none');
       
       slideDua.classList.replace('animate__zoomInDown', 'animate__fadeOutLeft');
       slideDua.classList.remove('animate__delay-2s', 'animate__slow');
@@ -144,22 +151,18 @@ const _slideLima = function () {
   const slideLima = document.getElementById('slideLima');
   slideLima.classList.remove('d-none');
   const trims = document.getElementById('trims');
+  const tricambang = document.getElementById('tricambang');
 
   setTimeout(() => {
     trims.classList.remove('d-none');
+    setTimeout(() => {
+      tricambang.classList.remove('d-none');
+    }, 2000); // Show image 2 seconds after trims
   }, 1000);
 
   slideLima.addEventListener('animationend', () => {
-    slideLima.classList.add('animate__delay-3s')
-    slideLima.classList.replace('animate__bounceIn', 'animate__fadeOut');
-    trims.classList.add('animate__animated', 'animate__fadeOut', 'animate__delay-3s');
-    setTimeout(() => {
-      trims.remove();
-      setTimeout(() => {
-        slideLima.remove();
-        _slideEnam();
-      }, 1000);
-    }, 6000);
+    // Keep the heart visible with the final message
+    _slideEnam();
   });
 };
 
@@ -170,7 +173,7 @@ const _slideEnam = function () {
 
 
 new TypeIt("#teks1", {
-  strings: ["Xin Chào bé Bảo Ngọc dễ thương nhất trần đời, hôm nay là một ngày siêu đặt biệt của em.", "Cảm ơn bé vì xuốt thời gian qua bé đã luôn cố gắng, không ngừng bỏ cuộc, vẫn luôn yêu đời và sống trọn vẹn.", "Mặc dù trải qua bao nhiêu khó khăn, bé vẫn luôn giữ vững niềm tin và tinh thần lạc quan.", "Hôm nay là ngày đặc biệt nhất của một người vô cùng đặt biệt với anh," , "Anh chúc bé có một ngày sinh nhật thật vui vẻ, hạnh phúc và tràn đầy yêu thương bên gia đình và bạn bè.", " ", "Anh hy vọng rằng trong năm mới của cuộc đời, bé sẽ tiếp tục đạt được những thành công mới, vượt qua mọi thử thách và luôn giữ được nụ cười trên môi."],
+  strings: ["Xin Chào bé Bảo Ngọc dễ thương nhất trần đời, hôm nay là một ngày siêu đặt biệt của em.", "Cảm ơn bé vì suốt thời gian qua bé đã luôn cố gắng, không ngừng bỏ cuộc, vẫn luôn yêu đời và sống trọn vẹn.", "Mặc dù trải qua bao nhiêu khó khăn, bé vẫn luôn giữ vững niềm tin và tinh thần lạc quan.", "Hôm nay là ngày đặc biệt nhất của một người vô cùng đặt biệt với anh," , "Anh chúc bé có một ngày sinh nhật thật vui vẻ, hạnh phúc và tràn đầy yêu thương bên gia đình và bạn bè.", " ", "Anh hy vọng rằng trong năm mới của cuộc đời, bé sẽ tiếp tục đạt được những thành công mới, vượt qua mọi thử thách và luôn giữ được nụ cười trên môi."],
   startDelay: 4000,
   speed: 75,
   waitUntilVisible: true
@@ -188,7 +191,7 @@ new TypeIt("#trims", {
   strings: ["Chúc mừng sinh nhật béeeeee."],
   startDelay: 1000,
   speed: 150,
-  loop: false,
+  // loop: false,
   waitUntilVisible: true,
 }).go();
 
