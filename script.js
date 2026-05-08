@@ -15,24 +15,34 @@ const second = 1000,
   minute = second * 60,
   hour = minute * 60,
   day = hour * 24;
-let countDown = new Date('Oct 22, 2023 00:00:00').getTime(),
+
+// Set countdown to 10 seconds from now for testing
+let countDown = new Date(Date.now() + 10 * second).getTime(),
+  x;
+
+// Wait 2 seconds before starting the timer
+setTimeout(function() {
   x = setInterval(function () {
     let now = new Date().getTime(),
       distance = countDown - now;
     // document.getElementById('days').innerText = Math.floor(distance / (day)),
-    document.getElementById('hours').innerText = Math.floor(distance / (hour)),
-      document.getElementById('minutes').innerText = Math.floor((distance % (hour)) / (minute)),
-      document.getElementById('seconds').innerText = Math.floor((distance % (minute)) / second);
+    document.getElementById('hours').innerText = Math.floor(distance / (hour)) || 0,
+      document.getElementById('minutes').innerText = Math.floor((distance % (hour)) / (minute)) || 0,
+      document.getElementById('seconds').innerText = Math.floor((distance % (minute)) / second) || 0;
 
-    if (distance < 0) {
-
+    if (distance <= 0) {
+      document.getElementById('days').innerText = 0;
+      document.getElementById('hours').innerText = 0;
+      document.getElementById('minutes').innerText = 0;
+      document.getElementById('seconds').innerText = 0;
       timer.classList.add('d-none');
       confetti();
       clearInterval(x);
       _slideSatu();
     }
 
-  }, second)
+  }, 100); // Update every 100ms for smooth countdown
+}, 2000); // Wait 2 seconds before starting
 
 const _slideSatu = function () {
   const tap = document.getElementById('tap');
@@ -50,6 +60,7 @@ const _slideDua = function () {
   const slideSatu = document.getElementById('slideSatu');
   const tap = document.getElementById('tap');
   const slideDua = document.getElementById('slideDua');
+  const ngocPhoto = document.getElementById('ngoc-photo');
 
   setTimeout(function () {
     slideSatu.classList.replace('animate__slideInDown', 'animate__backOutDown');
@@ -60,9 +71,14 @@ const _slideDua = function () {
   }, 1000);
 
   slideDua.classList.remove('d-none');
+  ngocPhoto.classList.remove('d-none');
+
   setTimeout(function () {
     tap.classList.remove('d-none');
     document.body.addEventListener('click', function () {
+      // Hide ngoc.jpg before transitioning
+      ngocPhoto.classList.add('d-none');
+      
       slideDua.classList.replace('animate__zoomInDown', 'animate__fadeOutLeft');
       slideDua.classList.remove('animate__delay-2s', 'animate__slow');
       tap.classList.add('d-none');
@@ -154,14 +170,14 @@ const _slideEnam = function () {
 
 
 new TypeIt("#teks1", {
-  strings: ["Xin Chào bé Bảo Ngọc dễ thương nhất trần đời, hôm nay là một ngày siêu đặt biệt của em.", "Semoga hal-hal yang membuat kamu runtuh turut menjadi alasan kamu untuk tetap tumbuh.", "Semoga dunia senantiasa menjaga kamu dimanapun kamu berada.", "Semoga hari-hari kamu selalu diiringi cinta yang tak pernah ada batasnya." , "Semoga setiap langkahmu dimudahkan hingga tercapai apa yang kamu inginkan."],
+  strings: ["Xin Chào bé Bảo Ngọc dễ thương nhất trần đời, hôm nay là một ngày siêu đặt biệt của em.", "Cảm ơn bé vì xuốt thời gian qua bé đã luôn cố gắng, không ngừng bỏ cuộc, vẫn luôn yêu đời và sống trọn vẹn.", "Mặc dù trải qua bao nhiêu khó khăn, bé vẫn luôn giữ vững niềm tin và tinh thần lạc quan.", "Hôm nay là ngày đặc biệt nhất của một người vô cùng đặt biệt với anh," , "Anh chúc bé có một ngày sinh nhật thật vui vẻ, hạnh phúc và tràn đầy yêu thương bên gia đình và bạn bè.", " ", "Anh hy vọng rằng trong năm mới của cuộc đời, bé sẽ tiếp tục đạt được những thành công mới, vượt qua mọi thử thách và luôn giữ được nụ cười trên môi."],
   startDelay: 4000,
   speed: 75,
   waitUntilVisible: true
 }).go();
 
 new TypeIt("#teks2", {
-  strings: ["Dengan ataupun tanpaku, semoga semesta selalu membahagiakan kamu bagimanapun caranya.", " ", "barakallah fi umrik, terima kasih sudah bertahan sampai sejauh ini.", " ", "- Wish all you the best"],
+  strings: ["Mặc dù anh biết đến bé chưa được lâu, nhưng anh rất cảm bé, vì năng lượng tích cực, và tâm hồn đẹp đẽ tinh khiết của bé đã là lây động trái tim già cỗi này.", " ", "Anh rất biết ơn bé vì đã trao cho anh một cơ hội để có thể hiểu bé hơn, anh rất trân trọng mối quan hệ của chúng mình. Nếu được thì anh mong rằng từ này trở về sau, anh có thể trở thành 1 phần trong cuộc sống của bé, giúp bé san sẽ những gánh nặng, cũng như yêu thương săn sóc cho bé", " ", "- Wish all you the best công chúa Bảo Ngọc"],
   startDelay: 2000,
   speed: 75,
   waitUntilVisible: true
@@ -169,8 +185,8 @@ new TypeIt("#teks2", {
 
 
 new TypeIt("#trims", {
-  strings: ["Terimakasih."],
-  startDelay: 2000,
+  strings: ["Chúc mừng sinh nhật béeeeee."],
+  startDelay: 1000,
   speed: 150,
   loop: false,
   waitUntilVisible: true,
