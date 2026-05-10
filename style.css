@@ -335,6 +335,50 @@ body {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   animation: slideInLeft 0.5s ease-in-out;
 }
+
+.corner-image {
+  position: fixed;
+  /* width: 120px; */
+  /* max-width: 120px; */
+  height: auto;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.crown-corner {
+  bottom: 20px;
+  left: 20px;
+}
+
+.flower-corner {
+  bottom: 20px;
+  right: 20px;
+}
+
+.heart-corner {
+  top: 20px;
+  left: 20px;
+  width: 120px;
+  max-width: 120px;
+}
+
+.avatar {
+  /* width: 160px;
+  height: 160px; */
+  border-radius: 10%;
+  object-fit: cover;
+
+  animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+  0%   { transform: scale(1); }
+  14%  { transform: scale(1.08); }
+  28%  { transform: scale(1); }
+  42%  { transform: scale(1.12); }
+  70%  { transform: scale(1); }
+}
+
 .rotate {
   animation: rotate 2s linear infinite;
 }
