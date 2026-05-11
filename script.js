@@ -40,7 +40,9 @@ setTimeout(function() {
 
     if (distance <= 0) {
       timer.classList.add('d-none');
-      confetti();
+      confetti(function () {
+        document.getElementById('tap2').classList.remove('d-none');
+      });
       clearInterval(x);
       _slideSatu();
     }
@@ -179,16 +181,16 @@ const _slideEnam = function () {
 
 
 new TypeIt("#teks1", {
-  strings: ["Xin Chào bé Bảo Ngọc dễ thương nhất trần đời 💖💖💖, hôm nay là một ngày siêu đặt biệt của em.", "Cảm ơn bé vì suốt thời gian qua bé đã luôn cố gắng, không ngừng cố gắng, không hề từ bỏ, vẫn luôn yêu đời và sống trọn vẹn.", "Mặc dù trải qua bao nhiêu khó khăn, bé vẫn luôn giữ vững niềm tin và tinh thần lạc quan.", "Hôm nay là ngày đặc biệt nhất của một người vô cùng đặt biệt với anh," , "Anh chúc bé có một ngày sinh nhật thật vui vẻ, hạnh phúc và tràn đầy yêu thương bên gia đình và bạn bè.", " ", "Anh hy vọng rằng trong năm mới của cuộc đời, bé sẽ tiếp tục đạt được những thành công mới, vượt qua mọi thử thách và luôn giữ được nụ cười trên môi."],
+  strings: ["Xin Chào bé Bảo Ngọc dễ thương nhất trần đời 💖💖💖, hôm nay là một ngày siêu đặt biệt của em.", "Cảm ơn bé vì suốt thời gian qua bé đã luôn cố gắng, không hề từ bỏ, vẫn luôn yêu đời và sống trọn vẹn.", "Mặc dù trải qua bao nhiêu khó khăn, bé vẫn luôn giữ vững niềm tin và tinh thần lạc quan.", "Hôm nay là ngày đặc biệt nhất của một người vô cùng đặt biệt với anh," , "Anh chúc bé có một ngày sinh nhật thật vui vẻ, hạnh phúc và tràn đầy yêu thương bên gia đình và bạn bè.", " ", "Anh hy vọng rằng trong năm mới của cuộc đời, bé sẽ tiếp tục đạt được những thành công mới, vượt qua mọi thử thách và luôn giữ được nụ cười trên môi.", " ", "Trang tiếp theo nhennnn..."],
   startDelay: 4000,
-  speed: 75,
+  speed: 40,
   waitUntilVisible: true
 }).go();
 
 new TypeIt("#teks2", {
-  strings: ["Mặc dù anh biết đến bé chưa được lâu, nhưng anh rất cảm bé, vì năng lượng tích cực, và tâm hồn đẹp đẽ tinh khiết của bé đã là lây động trái tim già cỗi này.", " ", "Anh rất biết ơn bé vì đã trao cho anh một cơ hội để có thể hiểu bé hơn, anh rất trân trọng mối quan hệ của chúng mình. Nếu được thì anh mong rằng từ này trở về sau, anh có thể trở thành 1 phần trong cuộc sống của bé, giúp bé san sẽ những gánh nặng, cũng như yêu thương săn sóc cho bé", " ", "- Chúc công chúa Bảo Ngọc mọi điều tốt nhất 💓💓💓", " ", "Anh Zịt Elizabeth"],
+  strings: ["Mặc dù anh biết đến bé chưa được lâu, nhưng anh rất cảm bé, vì năng lượng tích cực, và tâm hồn đẹp đẽ tinh khiết của bé đã là lây động trái tim già cỗi này.", " ", "Anh rất biết ơn bé vì đã trao cho anh một cơ hội để có thể hiểu bé hơn, anh rất trân trọng mối quan hệ của chúng mình. Nếu được thì anh mong rằng từ này trở về sau, anh có thể trở thành 1 phần trong cuộc sống của bé, giúp bé san sẽ những gánh nặng, cũng như yêu thương săn sóc cho bé, đồng hành cùng bé những ngày nắng cũng như bão dông", " ", "- Chúc công chúa Bảo Ngọc mọi điều tốt đẹp nhất 💓💓💓", " ", "Anh Zịt Elizabeth"],
   startDelay: 2000,
-  speed: 75,
+  speed: 55,
   waitUntilVisible: true
 }).go();
 
@@ -207,7 +209,7 @@ new TypeIt("#trims", {
 
 var onlyOnKonami = false;
 
-function confetti() {
+function confetti(onComplete) {
   // Globals
   var $window = $(window),
     random = Math.random,
@@ -455,6 +457,8 @@ function confetti() {
         // Cleanup
         document.body.removeChild(container);
         frame = undefined;
+        if (typeof onComplete === 'function')
+          onComplete();
       });
     }
   }

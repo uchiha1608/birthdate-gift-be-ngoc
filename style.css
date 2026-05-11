@@ -37,6 +37,11 @@ html {
   display: inline-block;
 }
 
+.notehe {
+  display: inline-block;
+  margin-top: 20px auto 0;
+}
+
 #slideSatu {
   position: relative;
 }
@@ -45,6 +50,7 @@ html {
   display: block;
   margin: 12px auto 0;
 }
+
 
 .foto {
   width: 80%;
@@ -360,6 +366,15 @@ body {
   left: 20px;
   width: 120px;
   max-width: 120px;
+}
+
+.text-corner {
+  top: 80px;
+  right: 20px;
+  width: auto;
+  max-width: 200px;
+  font-size: 18px;
+  color: #5f0606;
 }
 
 .avatar {
