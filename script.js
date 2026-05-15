@@ -17,8 +17,8 @@ const second = 1000,
   day = hour * 24;
 
 // Set countdown to May 16, 2026
-let countDown = new Date(2026, 4, 16).getTime(),
-// let countDown = new Date(Date.now() + 10 * second).getTime(),
+// let countDown = new Date(2026, 4, 16).getTime(),
+let countDown = new Date(Date.now() + 10 * second).getTime(),
 
   x;
 
