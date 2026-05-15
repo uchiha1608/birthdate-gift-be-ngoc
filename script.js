@@ -181,7 +181,7 @@ const _slideEnam = function () {
 
 
 new TypeIt("#teks1", {
-  strings: ["Xin Chào bé Bảo Ngọc dễ thương nhất trần đời 💖💖💖, hôm nay là một ngày siêu đặt biệt của em.", "Cảm ơn bé vì suốt thời gian qua bé đã luôn cố gắng, không hề từ bỏ, vẫn luôn yêu đời và sống trọn vẹn.", "Mặc dù trải qua bao nhiêu khó khăn, bé vẫn luôn giữ vững niềm tin và tinh thần lạc quan.", "Hôm nay là ngày đặc biệt nhất của một người vô cùng đặt biệt với anh," , "Anh chúc bé có một ngày sinh nhật thật vui vẻ, hạnh phúc và tràn đầy yêu thương bên gia đình và bạn bè.", " ", "Anh hy vọng rằng trong năm mới của cuộc đời, bé sẽ tiếp tục đạt được những thành công mới, vượt qua mọi thử thách và luôn giữ được nụ cười trên môi.", " ", "Trang tiếp theo nhennnn..."],
+  strings: ["Xin Chào bé Bảo Ngọc dễ thương nhất trần đời 💖💖💖, hôm nay là một ngày siêu đặt biệt của bé.", "Cảm ơn bé vì suốt thời gian qua bé đã luôn cố gắng, không hề từ bỏ, vẫn luôn yêu đời và sống trọn vẹn.", "Mặc dù trải qua bao nhiêu khó khăn, bé vẫn luôn giữ vững niềm tin và tinh thần lạc quan.", "Hôm nay là ngày đặc biệt nhất của một người vô cùng đặt biệt với anh," , "Anh chúc bé có một ngày sinh nhật thật vui vẻ, hạnh phúc và tràn đầy yêu thương bên gia đình và bạn bè.", " ", "Anh hy vọng rằng trong năm mới của cuộc đời, bé sẽ tiếp tục đạt được những thành công mới, vượt qua mọi thử thách và luôn giữ được nụ cười trên môi.", " ", "Trang tiếp theo nhennnn..."],
   startDelay: 4000,
   speed: 40,
   waitUntilVisible: true
